@@ -20,3 +20,30 @@ print(result)
 
 # 调用2
 print(fun_x(8)(10))
+
+
+def fun1():
+    """nonlocal 使内嵌函数引用外部变量 ----推荐 """
+    x = 5
+
+    def fun2():
+        nonlocal x
+        x *= x
+        return x
+    return fun2()
+
+
+print(fun1())
+
+
+def fun11():
+    """ python2 使内嵌函数引用外部变量----不推荐 """
+    x = [5]
+
+    def fun2():
+        x[0] *= x[0]
+        return x[0]
+    return fun2()
+
+
+print("使用容器方式，在内嵌函数中调用外部函数变量" + fun11())
