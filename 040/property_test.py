@@ -3,6 +3,9 @@
 
 
 class C(object):
+    def __init__(self):
+        self._x = 0
+
     def getx(self):
         return self._x
 
@@ -15,9 +18,10 @@ class C(object):
 
 
 c1 = C()
+print(c1.x)
 
 c1.x = 20
 print(c1.x)
 
-del c1.x
+c1.x = 30
 print(c1.x)
